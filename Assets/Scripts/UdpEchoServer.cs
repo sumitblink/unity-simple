@@ -18,7 +18,7 @@ using System.Net;
 using System.Net.Sockets;
 using System.Text;
 using UnityEngine;
-
+using System.Collections;
 namespace AgonesExample
 {
     [RequireComponent(typeof(AgonesSdk))]
@@ -28,9 +28,19 @@ namespace AgonesExample
         private UdpClient client = null;
         private AgonesSdk agones = null;
 
-        async void Start()
+         void Start()
         {
             client = new UdpClient(Port);
+            StartCoroutine(StartAgonesCheck());
+        }
+
+        IEnumerator StartAgonesCheck(){
+            yield return new WaitForSeconds(3.0f);
+            Debug.Log("Checking");
+            AgonesReady(); 
+        }
+
+        async void AgonesReady(){
 
             agones = GetComponent<AgonesSdk>();
             bool ok = await agones.Ready();
