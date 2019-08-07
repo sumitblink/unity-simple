@@ -31,18 +31,18 @@ namespace AgonesExample
          void Start()
         {
             client = new UdpClient(Port);
+            agones = GetComponent<AgonesSdk>();
             StartCoroutine(StartAgonesCheck());
         }
 
         IEnumerator StartAgonesCheck(){
-            yield return new WaitForSeconds(3.0f);
-            Debug.Log("Checking");
+            Debug.Log("Waiting for 3 seconds");
+            yield return new WaitForSeconds(3.0f);            
             AgonesReady(); 
         }
 
         async void AgonesReady(){
-
-            agones = GetComponent<AgonesSdk>();
+            
             bool ok = await agones.Ready();
             if (ok)
             {
