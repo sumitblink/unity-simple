@@ -24,11 +24,11 @@
 #     \_/ \__,_|_|  |_|\__,_|_.__/|_|\___|___/
 #
 
-REPOSITORY = gcr.io/agones-images
+REPOSITORY = gcr.io/unity-simple-udp
 
 mkfile_path := $(abspath $(lastword $(MAKEFILE_LIST)))
 project_path := $(dir $(mkfile_path))
-server_tag = $(REPOSITORY)/unity-simple-server:0.2
+server_tag = $(REPOSITORY)/unity-simple-server:0.5
 
 #   _____                    _
 #  |_   _|_ _ _ __ __ _  ___| |_ ___

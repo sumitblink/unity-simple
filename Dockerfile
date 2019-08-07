@@ -21,4 +21,5 @@ WORKDIR /unity
 COPY Builds/Server/ ./
 
 # [Workaround] Wait until the sidecar is ready.
+CMD chmod +x UnitySimpleServer.x86_64
 CMD sleep 2 && ./UnitySimpleServer.x86_64
