@@ -20,9 +20,8 @@ metadata:
 spec:
   ports:
   - name: default
-    portPolicy: Static
+    portPolicy: Dynamic
     containerPort: 7777
-    hostport: 7780
     protocol: TCP
   template:
     spec:
